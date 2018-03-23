@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { login, logout, isLoggedIn } from '../Utils/AuthService';
+import css from '../Style/Nav.css';
 
-class Nav extends Component {
+export default class Nav extends Component {
   render() {
     return (
-      <nav className="navbar navbar-inverse">
-        <div className="navbar-header">
-          <Link className="navbar-brand" to="/">myMovies</Link>
-        </div>
-        <ul className="nav navbar-nav">
-          <li>
-            <Link to="/">All Videos</Link>
+      <header>
+        <div className={css.overlay}>
+          <h1>myMovies</h1>
+          <h3>Never Forget</h3>
+          <br/>
+          <ul>
+          <li className={css.navlink} >
+            <Link to="/">My Videos</Link>
           </li>
           <li>
             {
@@ -20,17 +22,21 @@ class Nav extends Component {
           </li>
         </ul>
         <ul className="nav navbar-nav navbar-right">
-          <li>
+          <li className={css.navlink}>
            {
-             (isLoggedIn()) ? ( <button className="btn btn-danger log btn-sm"
+             (isLoggedIn()) ? ( <button
                onClick={() => logout()}>Log out </button> ) :
-               ( <button className="btn btn-danger navbar-btn"
+               ( <button
                  onClick={() => login()}>Log In</button> )
            }
           </li>
         </ul>
-      </nav>
+	        
+		    </div>
+      </header>
+
+
+
     );
   }
 }
-export default Nav;
