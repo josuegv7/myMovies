@@ -19,7 +19,6 @@ export default class Display extends Component {
             this.setState({ videos: res.data.resources});
           })
   }
-
   componentDidMount(){
     this.getVideos();
   }
