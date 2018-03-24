@@ -12,9 +12,6 @@ export default class Nav extends Component {
           <h3>Never Forget</h3>
           <br/>
           <ul>
-          <li className={css.navlink} >
-            <Link to="/">My Videos</Link>
-          </li>
           <li>
             {
              ( isLoggedIn() ) ? <Link to="/upload">Upload Videos</Link> :  ''
@@ -22,7 +19,7 @@ export default class Nav extends Component {
           </li>
         </ul>
         <ul className="nav navbar-nav navbar-right">
-          <li className={css.navlink}>
+          <li>
            {
              (isLoggedIn()) ? ( <button
                onClick={() => logout()}>Log out </button> ) :
